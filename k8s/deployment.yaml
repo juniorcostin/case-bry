@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: case-bry-starlord
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: case-bry-starlord
+  template:
+    metadata:
+      labels:
+        app: case-bry-starlord
+    spec:
+      imagePullSecrets:
+        - name: ecr-case-bry
+      nodeSelector:
+        ambiente: dev
+      containers:
+        - name: case-bry-starlord
+          image: 662780480310.dkr.ecr.us-east-1.amazonaws.com/case-bry-starlord:{{tag}}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8501

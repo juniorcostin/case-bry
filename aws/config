@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Config
+clusters:
+- name: "$K8S_NAMESPACE"
+  cluster:
+    server: "$RANCHER_URL"
+
+users:
+- name: "$K8S_NAMESPACE"
+  user:
+    token: "RANCHER_TOKEN"
+
+
+contexts:
+- name: "$K8S_NAMESPACE"
+  context:
+    user: "$K8S_NAMESPACE"
+    cluster: "$K8S_NAMESPACE"
+
+current-context: "$K8S_NAMESPACE"

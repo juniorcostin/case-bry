@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: case-bry-starlord
+spec:
+  selector:
+    app: case-bry-starlord
+  ports:
+    - protocol: TCP
+      port: 8501
+      targetPort: 30001
+  type: NodePort
