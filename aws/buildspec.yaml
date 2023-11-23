@@ -16,6 +16,7 @@ phases:
       - aws ecr get-login-password --region $AWS_REGIAO | docker login --username AWS --password-stdin $AWS_ECR_ID_CONTA.dkr.ecr.$AWS_REGIAO.amazonaws.com
 
       # Configurando Kubeconfig do Kubernetes
+      - pwd
       - cp ./aws/config /home/ubuntu/.kube/config
       
   build:
