@@ -14,8 +14,6 @@ spec:
     spec:
       imagePullSecrets:
         - name: ecr-case-bry
-      nodeSelector:
-        ambiente: dev
       containers:
         - name: case-bry-starlord
           image: 662780480310.dkr.ecr.us-east-1.amazonaws.com/case-bry-starlord:{{tag}}
