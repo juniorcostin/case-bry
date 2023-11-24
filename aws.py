@@ -3,7 +3,7 @@ import boto3
 import os
 
 def aws_s3():
-    st.subheader("Valida Acesso AWS S3")
+    st.subheader("Valida Acesso AWS S3 case Bry")
 
     access_key = st.text_input("Access Key")
     secret_key = st.text_input("Secret Key")
