@@ -27,14 +27,14 @@ phases:
       - 'sed -i "s/{{tag}}/$CODEBUILD_BUILD_NUMBER/g" ./k8s/deployment.yaml'
 
       # Removendo Sercret ECR Login do Kubernetes
-      - kubectl --kubeconfig ./aws/kube.config delete secret ecr-$K8S_NAMESPACE --namespace $K8S_NAMESPACE
+      - kubectl --kubeconfig ./aws/kube.yaml delete secret ecr-$K8S_NAMESPACE --namespace $K8S_NAMESPACE
 
       # Adicionando nova Secret ECR Login do Kubernetes 
-      - kubectl --kubeconfig ./aws/kube.config create secret docker-registry ecr-$K8S_NAMESPACE --docker-server=$AWS_ECR_ID_CONTA.dkr.ecr.$AWS_REGIAO.amazonaws.com   --docker-username=AWS   --docker-password=$(aws ecr get-login-password)   --namespace $K8S_NAMESPACE
+      - kubectl --kubeconfig ./aws/kube.yaml create secret docker-registry ecr-$K8S_NAMESPACE --docker-server=$AWS_ECR_ID_CONTA.dkr.ecr.$AWS_REGIAO.amazonaws.com   --docker-username=AWS   --docker-password=$(aws ecr get-login-password)   --namespace $K8S_NAMESPACE
 
       # Iniciando Deploy Kubernetes
-      - kubectl --kubeconfig ./aws/kube.config apply -f ./k8s/deployment.yaml --namespace $K8S_NAMESPACE
-      - kubectl --kubeconfig ./aws/kube.config apply -f ./k8s/services.yaml --namespace $K8S_NAMESPACE
+      - kubectl --kubeconfig ./aws/kube.yaml apply -f ./k8s/deployment.yaml --namespace $K8S_NAMESPACE
+      - kubectl --kubeconfig ./aws/kube.yaml apply -f ./k8s/services.yaml --namespace $K8S_NAMESPACE
       
   post_build:
     commands:

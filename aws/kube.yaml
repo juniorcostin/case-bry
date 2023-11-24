@@ -8,7 +8,7 @@ clusters:
 users:
 - name: "case-bry"
   user:
-    token: "kubeconfig-user-vj7qhzg4lb:kfwjbrgpt9tbzr4xpl2kh6vjp6n56jkf45rwbqgctnvh6lzfmsp2q8"
+    token: "kubeconfig-user-vj7qhzrfkl:pghpnjvszdqx6hmw8lqtvt5rvllkrhg4st652q2hkbmqr6bqdb5whv"
 
 
 contexts:
@@ -16,3 +16,5 @@ contexts:
   context:
     user: "case-bry"
     cluster: "case-bry"
+
+current-context: "case-bry"
